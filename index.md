@@ -6,6 +6,8 @@ obvious to anyone with half a brain, but that's not me.
 - [2D Camera zoom](#2d-camera-zoom)
 - [Pixel coordinates to UV coordinate mapping](#pixel-coordinates-to-uv-coordinate-mapping)
 - [Incrementing dereferenced pointers](#incrementing-dereferenced-pointers)
+
+
 ## 2D Camera zoom
 
 For a long time when programming camera zoom I used to do something like this:
