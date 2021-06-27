@@ -3,6 +3,9 @@
 This is a list of some programming "tricks" that are probably
 obvious to anyone with half a brain, but that's not me.
 
+[2D Camera zoom](#2d-camera-zoom)
+[Pixel coordinates to UV coordinate mapping](#pixel-coordinates-to-uv-coordinate-mapping)
+
 ## 2D Camera zoom
 
 For a long time when programming camera zoom I used to do something like this:
