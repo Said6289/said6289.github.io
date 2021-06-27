@@ -5,7 +5,7 @@ obvious to anyone with half a brain, but that's not me.
 
 - [2D Camera zoom](#2d-camera-zoom)
 - [Pixel coordinates to UV coordinate mapping](#pixel-coordinates-to-uv-coordinate-mapping)
-
+- [Incrementing dereferenced pointers](#incrementing-dereferenced-pointers)
 ## 2D Camera zoom
 
 For a long time when programming camera zoom I used to do something like this:
@@ -48,3 +48,36 @@ v = y / height;
 ```
 
 then you'll map `(x, y)` to the _left edge_ of the pixel.
+
+
+## incrementing dereferenced pointers
+
+This small mistake has caused me more headache than I'm proud to admit. So here's what it is and how to deal with it:
+
+Say you have an integer `int index = 3` and a pointer to the integer:
+ ```int *pointer = &index```
+And now you're halfway down your code, you want to increment your original integer. You will have to dereference it (since it's a pointer) and add to it. 
+
+You know that in order to add by one you can either:    
+```index = index + 1;```    
+Or    
+```index += 1;```    
+Or    
+```index++;```    
+
+And in order to increment using the pointer we defined:    
+
+```*pointer = *pointer + 1;```    
+Or     
+```*pointer += 1;```      
+Or      
+```*pointer++;```     
+
+This should work right? Nope. The first two work, it's the third one that breaks the program.
+
+You see, dereferencing, like arithmetic operations, has its order amongst these operations as well. The compiler decides which to do first. So in the last case, what the compiler does here is increment first, deterrence second. So it increments a local copy of the pointer instead of what the pointer is pointing to. 
+
+To fix this simply force the compiler to do the dereferencing first:    
+```(*pointer)++;```
+
+That's it.
