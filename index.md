@@ -75,7 +75,7 @@ Or
 
 This should work right? Nope. The first two work, it's the third one that breaks the program.
 
-You see, dereferencing, like arithmetic operations, has its order amongst these operations as well. The compiler decides which to do first. So in the last case, what the compiler does here is increment first, deterrence second. So it increments a local copy of the pointer instead of what the pointer is pointing to. 
+You see, dereferencing, like arithmetic operations, has its order amongst these operations as well. The compiler decides which to do first. So in the last case, what the compiler does here is increment first, dereference second. So it increments a local copy of the pointer instead of what the pointer is pointing to. 
 
 To fix this simply force the compiler to do the dereferencing first:    
 ```(*pointer)++;```
